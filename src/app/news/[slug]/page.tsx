@@ -1,16 +1,18 @@
-"use client";
-
-import * as React from "react";
-import Image from "next/image";
 import Link from "next/link";
-import { getNewsBySlug } from "../data";
-import { useParams } from "next/navigation";
+import { getNewsBySlug } from "@/lib/content/news";
+import InlineImage from "@/components/admin/InlineImage";
+import InlineText from "@/components/admin/InlineText";
+import InlineVideo from "@/components/admin/InlineVideo";
 
-export default function NewsDetail() {
-    // Use the useParams hook to access the dynamic parameters
-    const params = useParams();
-    const slug = params.slug as string;
-    const news = getNewsBySlug(slug);
+export const dynamic = "force-dynamic";
+
+export default async function NewsDetail({
+    params,
+}: {
+    params: Promise<{ slug: string }>;
+}) {
+    const { slug } = await params;
+    const news = await getNewsBySlug(slug);
 
     if (!news) {
         return (
@@ -46,33 +48,81 @@ export default function NewsDetail() {
 
                     {/* Article Header */}
                     <header className="mb-8">
-                        <h1 className="text-4xl font-bold text-primary-800 mb-4">
-                            {news.title}
-                        </h1>
+                        <InlineText
+                            as="h1"
+                            path="title"
+                            docKey={news.id}
+                            value={news.title}
+                            className="text-4xl font-bold text-primary-800 mb-4"
+                        />
                         <div className="flex items-center gap-4 text-primary-600">
-                            <span>📅 {news.date}</span>
-                            <span>👤 {news.author}</span>
-                            <span>📂 {news.category}</span>
-                            {news.views && (
-                                <span>👁️ {news.views} lượt xem</span>
-                            )}
+                            <span>
+                                📅{" "}
+                                <InlineText
+                                    as="span"
+                                    path="date"
+                                    docKey={news.id}
+                                    value={news.date}
+                                />
+                            </span>
+                            <span>
+                                👤{" "}
+                                <InlineText
+                                    as="span"
+                                    path="author"
+                                    docKey={news.id}
+                                    value={news.author}
+                                />
+                            </span>
+                            <span>
+                                📂{" "}
+                                <InlineText
+                                    as="span"
+                                    path="category"
+                                    docKey={news.id}
+                                    value={news.category}
+                                />
+                            </span>
+                            {news.views ? (
+                                <span>
+                                    👁️{" "}
+                                    <InlineText
+                                        as="span"
+                                        path="views"
+                                        docKey={news.id}
+                                        value={String(news.views)}
+                                    />{" "}
+                                    lượt xem
+                                </span>
+                            ) : null}
                         </div>
                     </header>
 
                     {/* Featured Image */}
-                    <div className="relative h-[400px] mb-8">
-                        <Image
-                            src={news.image}
-                            alt={news.title}
-                            fill
-                            className="object-cover rounded-xl"
-                            priority
+                    <InlineImage
+                        path="image"
+                        docKey={news.id}
+                        src={news.image}
+                        alt={news.title}
+                        fill
+                        priority
+                        className="object-cover rounded-xl"
+                        wrapperClassName="relative h-[400px] mb-8"
+                    />
+
+                    {/* Featured Video */}
+                    {news.video && (
+                        <InlineVideo
+                            path="video"
+                            docKey={news.id}
+                            src={news.video}
+                            className="w-full mb-8 rounded-xl"
                         />
-                    </div>
+                    )}
 
                     {/* Article Content */}
                     <div
-                        className="prose prose-lg max-w-none prose-headings:text-white prose-p:text-white/90 prose-a:text-primary-600 hover:prose-a:text-primary-700"
+                        className="prose prose-lg max-w-none dark:prose-invert prose-headings:text-white prose-p:text-white/90 prose-a:text-primary-600 hover:prose-a:text-primary-700"
                         dangerouslySetInnerHTML={{ __html: news.content }}
                     />
                 </div>
@@ -80,5 +130,3 @@ export default function NewsDetail() {
         </main>
     );
 }
-
-// Add a separate metadata.tsx file for metadata

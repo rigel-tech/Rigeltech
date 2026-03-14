@@ -1,9 +1,18 @@
-"use client";
-
 import Link from "next/link";
-import { projects } from "@/app/projects/data";
+import { getProjects } from "@/lib/content/projects";
+import type { Project } from "@/app/projects/data";
+import InlineBlock from "@/components/admin/InlineBlock";
+import InlineText from "@/components/admin/InlineText";
 
-export default function Projects() {
+export default async function Projects() {
+    let projects: Project[] = [];
+    try {
+        projects = await getProjects();
+    } catch (error) {
+        console.error('Error loading projects:', error);
+        projects = [];
+    }
+
     return (
         <main className="min-h-screen">
             <section className="pt-32 pb-20">
@@ -24,36 +33,63 @@ export default function Projects() {
                                 key={project.id}
                                 className="block group h-full"
                             >
-                                <div className="bg-white/90 backdrop-blur-sm rounded-xl shadow-lg p-8 hover:shadow-xl transition-all duration-300 hover:-translate-y-1 h-full flex flex-col">
+                                <InlineBlock
+                                    path="title"
+                                    paths={[
+                                        "title",
+                                        "description",
+                                        "tech",
+                                        "year",
+                                    ]}
+                                    docKey={project.id}
+                                    className="bg-white/90 backdrop-blur-sm rounded-xl shadow-lg p-8 hover:shadow-xl transition-all duration-300 hover:-translate-y-1 h-full flex flex-col"
+                                >
                                     <div className="flex flex-col flex-grow">
-                                        <h3 className="text-xl font-semibold text-gray-800 mb-3">
-                                            {project.title}
-                                        </h3>
-                                        <p className="text-gray-500 mb-4 flex-grow">
-                                            {project.description}
-                                        </p>
+                                        <InlineText
+                                            as="h3"
+                                            path="title"
+                                            docKey={project.id}
+                                            value={project.title}
+                                            className="text-xl font-semibold text-gray-800 mb-3"
+                                        />
+                                        <InlineText
+                                            as="p"
+                                            path="description"
+                                            docKey={project.id}
+                                            value={project.description}
+                                            className="text-gray-500 mb-4 flex-grow"
+                                        />
                                         <div className="flex flex-wrap gap-2 mb-4">
                                             {project.tech.map(
                                                 (tech, techIndex) => (
-                                                    <span
+                                                    <InlineText
                                                         key={techIndex}
+                                                        as="span"
+                                                        path={`tech[${techIndex}]`}
+                                                        docKey={project.id}
+                                                        value={tech}
                                                         className="px-3 py-1 bg-primary-50 text-primary-700 rounded-full text-sm font-medium"
-                                                    >
-                                                        {tech}
-                                                    </span>
+                                                    />
                                                 ),
                                             )}
                                         </div>
                                         <div className="mt-auto flex justify-between items-center">
                                             <div className="text-sm text-gray-500">
-                                                Năm: {project.year}
+                                                Năm:{" "}
+                                                <InlineText
+                                                    as="span"
+                                                    path="year"
+                                                    docKey={project.id}
+                                                    value={project.year}
+                                                    className="text-sm text-gray-500"
+                                                />
                                             </div>
                                             <span className="text-primary-600 group-hover:translate-x-2 transition-transform duration-300">
                                                 Xem chi tiết →
                                             </span>
                                         </div>
                                     </div>
-                                </div>
+                                </InlineBlock>
                             </Link>
                         ))}
                     </div>

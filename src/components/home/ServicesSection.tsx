@@ -1,11 +1,14 @@
-import Image from "next/image";
 import Link from "next/link";
+import InlineBlock from "@/components/admin/InlineBlock";
+import InlineImage from "@/components/admin/InlineImage";
+import InlineText from "@/components/admin/InlineText";
 
 interface ServiceProps {
     title: string;
     subtitle: string;
     description: string;
     icon: string;
+    sourceKey?: string;
 }
 
 export default function ServicesSection({
@@ -15,7 +18,6 @@ export default function ServicesSection({
     services: ServiceProps[];
     showAll?: boolean;
 }) {
-    // Show only first 4 services if showAll is false
     const displayServices = showAll ? services : services.slice(0, 4);
 
     return (
@@ -33,13 +35,23 @@ export default function ServicesSection({
 
                 <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
                     {displayServices.map((service, index) => (
-                        <div
+                        <InlineBlock
                             key={index}
+                            path="title"
+                            paths={[
+                                "title",
+                                "subtitle",
+                                "description",
+                                "icon",
+                            ]}
+                            docKey={service.sourceKey}
                             className="bg-white rounded-xl shadow-lg p-8 hover:shadow-xl transition-shadow duration-300"
                         >
                             <div className="flex items-start space-x-6">
                                 <div className="w-14 h-14 rounded-lg bg-primary-50 flex items-center justify-center flex-shrink-0">
-                                    <Image
+                                    <InlineImage
+                                        path="icon"
+                                        docKey={service.sourceKey}
                                         src={service.icon}
                                         alt={service.title}
                                         width={28}
@@ -48,19 +60,31 @@ export default function ServicesSection({
                                 </div>
                                 <div>
                                     <div className="mb-3">
-                                        <h3 className="text-xl font-semibold text-gray-800">
-                                            {service.title}
-                                        </h3>
-                                        <p className="text-sm text-primary-600">
-                                            {service.subtitle}
-                                        </p>
+                                        <InlineText
+                                            as="h3"
+                                            path="title"
+                                            docKey={service.sourceKey}
+                                            value={service.title}
+                                            className="text-xl font-semibold text-gray-800"
+                                        />
+                                        <InlineText
+                                            as="p"
+                                            path="subtitle"
+                                            docKey={service.sourceKey}
+                                            value={service.subtitle}
+                                            className="text-sm text-primary-600"
+                                        />
                                     </div>
-                                    <p className="text-gray-500 line-clamp-3">
-                                        {service.description}
-                                    </p>
+                                    <InlineText
+                                        as="p"
+                                        path="description"
+                                        docKey={service.sourceKey}
+                                        value={service.description}
+                                        className="text-gray-500 line-clamp-3"
+                                    />
                                 </div>
                             </div>
-                        </div>
+                        </InlineBlock>
                     ))}
                 </div>
 

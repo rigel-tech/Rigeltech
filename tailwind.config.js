@@ -4,6 +4,7 @@ module.exports = {
         "./src/pages/**/*.{js,ts,jsx,tsx,mdx}",
         "./src/components/**/*.{js,ts,jsx,tsx,mdx}",
         "./src/app/**/*.{js,ts,jsx,tsx,mdx}",
+        "./src/lib/**/*.{js,ts,jsx,tsx}",
     ],
     theme: {
         extend: {
@@ -33,4 +34,14 @@ module.exports = {
         },
     },
     plugins: [require("@tailwindcss/typography")],
+    // Optimize CSS generation
+    corePlugins: {
+        preflight: true,
+    },
+    // Reduce CSS bundle size
+    safelist: [
+        // Add any dynamic classes that might not be detected
+        'prose-invert',
+        'dark:prose-invert',
+    ],
 };

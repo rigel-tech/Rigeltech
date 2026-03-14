@@ -1,6 +1,8 @@
 import Link from "next/link";
-import { getOpenPositions } from "./data";
+import { getOpenPositions } from "@/lib/content/careers";
 import ApplicationForm from "@/components/careers/ApplicationForm";
+import InlineBlock from "@/components/admin/InlineBlock";
+import InlineText from "@/components/admin/InlineText";
 
 export default async function RecruitPage() {
     const openPositions = await getOpenPositions();
@@ -26,36 +28,58 @@ export default async function RecruitPage() {
                         </h2>
                         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
                             {openPositions.map((position, index) => (
-                                <div
+                                <InlineBlock
                                     key={index}
+                                    path="title"
+                                    paths={[
+                                        "title",
+                                        "description",
+                                        "tags",
+                                        "icon",
+                                    ]}
+                                    docKey={position.id}
                                     className="bg-white/10 backdrop-blur-sm rounded-xl shadow-md overflow-hidden hover:shadow-lg transition-all duration-300 flex flex-col"
                                 >
                                     <div className="p-6 flex-1 flex flex-col">
                                         <div className="mb-4 text-center">
                                             <div className="w-16 h-16 rounded-full bg-primary-600/20 mx-auto flex items-center justify-center mb-4">
-                                                <span className="text-2xl">
-                                                    {position.icon}
-                                                </span>
+                                                <InlineText
+                                                    as="span"
+                                                    path="icon"
+                                                    docKey={position.id}
+                                                    value={position.icon}
+                                                    className="text-2xl"
+                                                />
                                             </div>
-                                            <h3 className="text-xl font-semibold text-white">
-                                                {position.title}
-                                            </h3>
+                                            <InlineText
+                                                as="h3"
+                                                path="title"
+                                                docKey={position.id}
+                                                value={position.title}
+                                                className="text-xl font-semibold text-white"
+                                            />
                                         </div>
 
                                         <div className="flex flex-wrap justify-center gap-2 mb-5">
                                             {position.tags.map((tag, idx) => (
-                                                <span
+                                                <InlineText
                                                     key={idx}
+                                                    as="span"
+                                                    path={`tags[${idx}]`}
+                                                    docKey={position.id}
+                                                    value={tag}
                                                     className="px-2 py-1 bg-primary-600/20 text-primary-400 text-xs rounded"
-                                                >
-                                                    {tag}
-                                                </span>
+                                                />
                                             ))}
                                         </div>
 
-                                        <p className="text-white/70 text-center mb-6 flex-1">
-                                            {position.description}
-                                        </p>
+                                        <InlineText
+                                            as="p"
+                                            path="description"
+                                            docKey={position.id}
+                                            value={position.description}
+                                            className="text-white/70 text-center mb-6 flex-1"
+                                        />
 
                                         <Link
                                             href="#apply-form"
@@ -64,7 +88,7 @@ export default async function RecruitPage() {
                                             Ứng Tuyển Ngay
                                         </Link>
                                     </div>
-                                </div>
+                                </InlineBlock>
                             ))}
                         </div>
                     </div>

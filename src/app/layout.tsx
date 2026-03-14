@@ -2,6 +2,8 @@ import type { Metadata, Viewport } from "next";
 import { Roboto } from "next/font/google";
 import "./globals.css";
 import ClientLayout from "@/components/layout/ClientLayout";
+import { getSiteSettings } from "@/lib/content/site";
+import { getFooterLinks } from "@/lib/content/navigation";
 
 const roboto = Roboto({
     weight: ["400", "500", "700", "900"],
@@ -48,25 +50,28 @@ export const metadata: Metadata = {
   metadataBase: new URL("https://digifund.tech"),
 };
 
-export default function RootLayout({
+export default async function RootLayout({
     children,
 }: Readonly<{
     children: React.ReactNode;
 }>) {
+    const [site, links] = await Promise.all([
+        getSiteSettings(),
+        getFooterLinks(),
+    ]);
+
     return (
         <html lang="vi">
             <head>
-                <link
-                    rel="stylesheet"
-                    href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css"
-                />
                 <meta
                     name="google-site-verification"
                     content="your-verification-code"
                 />
             </head>
             <body className={`${roboto.className} antialiased`}>
-                <ClientLayout>{children}</ClientLayout>
+                <ClientLayout site={site} links={links}>
+                    {children}
+                </ClientLayout>
             </body>
         </html>
     );

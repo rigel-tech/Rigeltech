@@ -1,0 +1,80 @@
+[
+  {
+    "key": "default",
+    "hero": {
+      "headline": "Rigel Tech - Công nghệ tài chính số hàng đầu Việt Nam",
+      "subheadline": "Đối tác tin cậy trong hành trình chuyển đổi số của doanh nghiệp"
+    },
+    "bannerSlides": [
+      {
+        "id": "1",
+        "image": "/banner-1.jpg",
+        "alt": "Banner 1",
+        "title": "CÔNG TY TNHH RIGEL TECH",
+        "description": "Đối tác tin cậy cho sự phát triển bền vững của doanh nghiệp"
+      },
+      {
+        "id": "2",
+        "image": "/banner-2.jpg",
+        "alt": "Banner 2",
+        "title": "Giải pháp toàn diện",
+        "description": "Cung cấp các giải pháp tối ưu cho doanh nghiệp của bạn"
+      },
+      {
+        "id": "3",
+        "image": "/banner-3.jpg",
+        "alt": "Banner 3",
+        "title": "Đội ngũ chuyên nghiệp",
+        "description": "Với đội ngũ nhân viên giàu kinh nghiệm và tận tâm"
+      }
+    ],
+    "about": {
+      "title": "Về RIGEL TECH",
+      "heading": "Sáng tạo & Chuyên môn",
+      "body": "RIGEL TECH là công ty công nghệ với đội ngũ kỹ sư phần mềm giàu nhiệt huyết và sáng tạo. Chúng tôi chuyên phát triển các giải pháp web hiện đại và ứng dụng di động thông minh, giúp doanh nghiệp bắt kịp xu hướng công nghệ mới.",
+      "stats": [
+        {
+          "value": "15+",
+          "label": "Chuyên gia công nghệ"
+        },
+        {
+          "value": "20+",
+          "label": "Dự án đang phát triển"
+        }
+      ],
+      "image": "/about-bg.png",
+      "imageAlt": "About Us"
+    },
+    "clients": {
+      "title": "Khách hàng tiêu biểu của Rigel Tech",
+      "logos": [
+        { "id": "1", "image": "/client-1.svg", "alt": "Client 1" },
+        { "id": "2", "image": "/client-2.svg", "alt": "Client 2" },
+        { "id": "3", "image": "/client-3.svg", "alt": "Client 3" },
+        { "id": "4", "image": "/client-4.svg", "alt": "Client 4" },
+        { "id": "5", "image": "/client-5.svg", "alt": "Client 5" },
+        { "id": "6", "image": "/client-6.svg", "alt": "Client 6" },
+        { "id": "7", "image": "/client-7.svg", "alt": "Client 7" },
+        { "id": "8", "image": "/client-8.svg", "alt": "Client 8" },
+        { "id": "9", "image": "/client-9.svg", "alt": "Client 9" },
+        { "id": "10", "image": "/client-10.svg", "alt": "Client 10" }
+      ]
+    },
+    "blocks": [
+      { "id": "banner", "type": "banner", "label": "Banner", "visible": true },
+      { "id": "about", "type": "about", "label": "About", "visible": true },
+      { "id": "news", "type": "news", "label": "News", "visible": true },
+      { "id": "fields", "type": "fields", "label": "Fields", "visible": true },
+      { "id": "services", "type": "services", "label": "Services", "visible": true },
+      {
+        "id": "serviceExtra",
+        "type": "serviceExtra",
+        "label": "Service Extra",
+        "visible": true
+      },
+      { "id": "clients", "type": "clients", "label": "Clients", "visible": true }
+    ],
+    "status": "published",
+    "sourceKey": "home:default"
+  }
+]

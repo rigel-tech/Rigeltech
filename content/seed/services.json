@@ -1,0 +1,132 @@
+[
+  {
+    "title": "Tư vấn giải pháp",
+    "subtitle": "Solution Consulting",
+    "description": "Phân tích hệ thống hiện tại và đề xuất các giải pháp giúp các công ty áp dụng các công nghệ mới để nâng cao năng lực cạnh tranh và hiệu quả hoạt động",
+    "icon": "/icons/communication.png",
+    "status": "published",
+    "sourceKey": "services:Tư vấn giải pháp",
+    "createdAt": "2026-03-14T11:45:10.002Z",
+    "updatedAt": "2026-03-14T11:45:10.002Z"
+  },
+  {
+    "title": "Lập kế hoạch dự án",
+    "subtitle": "Project Planning",
+    "description": "Lập kế hoạch dự án theo các mục tiêu và chiến lược của khách hàng với các giai đoạn triển khai theo thứ tự ưu tiên. Lập chương trình chuyển đổi số, chuyển qua mô hình online, chuyển qua cloud,…",
+    "icon": "/icons/plan.png",
+    "status": "published",
+    "sourceKey": "services:Lập kế hoạch dự án",
+    "createdAt": "2026-03-14T11:45:10.002Z",
+    "updatedAt": "2026-03-14T11:45:10.002Z"
+  },
+  {
+    "title": "Nghiên cứu & Phát triển",
+    "subtitle": "R&D",
+    "description": "Đánh giá và thử nghiệm các công nghệ và phương pháp khác nhau để đề xuất giải pháp khả thi và phù hợp nhất",
+    "icon": "/icons/file-search-one.png",
+    "status": "published",
+    "sourceKey": "services:Nghiên cứu & Phát triển",
+    "createdAt": "2026-03-14T11:45:10.002Z",
+    "updatedAt": "2026-03-14T11:45:10.002Z"
+  },
+  {
+    "title": "Phát triển sản phẩm mẫu",
+    "subtitle": "Prototyping, Proof of Concept",
+    "description": "Đánh giá tính khả thi của ý tưởng. Phát triển sản phẩm mẫu trong thời gian ngắn nhất",
+    "icon": "/icons/editor.png",
+    "status": "published",
+    "sourceKey": "services:Phát triển sản phẩm mẫu",
+    "createdAt": "2026-03-14T11:45:10.002Z",
+    "updatedAt": "2026-03-14T11:45:10.002Z"
+  },
+  {
+    "title": "Thiết kế giao diện",
+    "subtitle": "UX/UI Design",
+    "description": "Thiết kế giao diện web, smart phone, máy tính bảng. Cải tiến giao diện để tăng tính tương tác và trải nghiệm người dùng",
+    "icon": "/icons/page-template.png",
+    "status": "published",
+    "sourceKey": "services:Thiết kế giao diện",
+    "createdAt": "2026-03-14T11:45:10.002Z",
+    "updatedAt": "2026-03-14T11:45:10.002Z"
+  },
+  {
+    "title": "Phát triển phần mềm",
+    "subtitle": "Software Development",
+    "description": "Phát triển phần mềm với các công nghệ khác nhau. Nâng cấp phần mềm sẵn có",
+    "icon": "/icons/web-page.png",
+    "status": "published",
+    "sourceKey": "services:Phát triển phần mềm",
+    "createdAt": "2026-03-14T11:45:10.002Z",
+    "updatedAt": "2026-03-14T11:45:10.002Z"
+  },
+  {
+    "title": "Kiểm thử phần mềm",
+    "subtitle": "Software Testing",
+    "description": "Đánh giá chất lượng phần mềm với nhiều tiêu chí khác nhau. Kiểm thử tự động",
+    "icon": "/icons/setting.png",
+    "status": "published",
+    "sourceKey": "services:Kiểm thử phần mềm",
+    "createdAt": "2026-03-14T11:45:10.002Z",
+    "updatedAt": "2026-03-14T11:45:10.002Z"
+  },
+  {
+    "title": "Quản trị hệ thống",
+    "subtitle": "IT Managed Services",
+    "description": "Tư vấn, thiết kế hệ thống mạng, máy tính, đường truyền, bảo mật. Quản trị về máy chủ và điện toán đám mây, hỗ trợ và bảo trì các ứng dụng. Giải pháp điều hành và giám sát hệ thống mạng (NOC - Network Operation Center). Giám sát hệ thống 24/24. Sửa chữa và khắc phục sự cố",
+    "icon": "/icons/link-cloud-success.png",
+    "status": "published",
+    "sourceKey": "services:Quản trị hệ thống",
+    "createdAt": "2026-03-14T11:45:10.002Z",
+    "updatedAt": "2026-03-14T11:45:10.002Z"
+  },
+  {
+    "title": "Chuyển đổi hệ thống",
+    "subtitle": "Porting & Migration",
+    "description": "Chuyển đổi hệ thống cũ sang các công nghệ mới để tăng hiệu suất. Chuyển đổi dữ liệu",
+    "icon": "/icons/link-cloud.png",
+    "status": "published",
+    "sourceKey": "services:Chuyển đổi hệ thống",
+    "createdAt": "2026-03-14T11:45:10.002Z",
+    "updatedAt": "2026-03-14T11:45:10.002Z"
+  },
+  {
+    "title": "Dịch vụ bảo mật",
+    "subtitle": "Security Services",
+    "description": "Kiểm tra, đánh giá và cải tiến hệ thống an toàn thông tin. Xây dựng hệ thống giám sát an ninh mạng (SOC - Security Operation Center). Nâng cấp và chuẩn hóa hệ thống an toàn thông tin",
+    "icon": "/icons/data-lock.png",
+    "status": "published",
+    "sourceKey": "services:Dịch vụ bảo mật",
+    "createdAt": "2026-03-14T11:45:10.002Z",
+    "updatedAt": "2026-03-14T11:45:10.002Z"
+  },
+  {
+    "title": "Hỗ trợ CNTT",
+    "subtitle": "IT Support",
+    "description": "Cung cấp dịch vụ hỗ trợ kỹ thuật, bảo trì và khắc phục sự cố phần mềm, phần cứng, mạng và thiết bị văn phòng. Hỗ trợ từ xa và tại chỗ 24/7 để đảm bảo hệ thống vận hành ổn định và liên tục",
+    "icon": "/icons/technical-support.png",
+    "status": "published",
+    "sourceKey": "services:Hỗ trợ CNTT",
+    "createdAt": "2026-03-14T11:45:10.002Z",
+    "updatedAt": "2026-03-14T11:45:10.002Z"
+  },
+  {
+    "title": "Cho thuê máy chủ",
+    "subtitle": "Server Rental",
+    "description": "Cung cấp dịch vụ cho thuê máy chủ vật lý và máy chủ ảo (VPS/Cloud). Hỗ trợ cấu hình, bảo mật và quản trị toàn diện, đảm bảo hiệu năng, độ ổn định và khả năng mở rộng cho doanh nghiệp",
+    "icon": "/icons/servers.png",
+    "status": "published",
+    "sourceKey": "services:Cho thuê máy chủ",
+    "createdAt": "2026-03-14T11:45:10.002Z",
+    "updatedAt": "2026-03-14T11:45:10.002Z"
+  },
+  {
+    "title": "Phát triển phần mềm tích hợp và đào tạo AI, Blockchain",
+    "subtitle": "Server Rental",
+    "description": "Cung cấp giải pháp phát triển phần mềm tích hợp, hỗ trợ ứng dụng AI và Blockchain. Chúng tôi đồng thời đào tạo và chuyển giao công nghệ, giúp doanh nghiệp triển khai hiệu quả các hệ thống thông minh, bảo mật và dễ mở rộng.",
+    "icon": "/icons/servers.png",
+    "status": "published",
+    "sourceKey": "services:Phát triển phần mềm tích hợp và đào tạo AI, Blockchain",
+    "createdAt": "2026-03-14T11:45:10.002Z",
+    "updatedAt": "2026-03-14T11:45:10.002Z"
+  }
+]

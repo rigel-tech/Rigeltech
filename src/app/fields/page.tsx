@@ -1,7 +1,11 @@
-import Image from "next/image";
-import { FIELDS } from "@/constants/data";
+import { getFields } from "@/lib/content/fields";
+import InlineBlock from "@/components/admin/InlineBlock";
+import InlineImage from "@/components/admin/InlineImage";
+import InlineText from "@/components/admin/InlineText";
 
-export default function FieldsPage() {
+export default async function FieldsPage() {
+    const fields = await getFields();
+
     return (
         <main className="min-h-screen">
             <section className="pt-32 pb-20">
@@ -17,14 +21,19 @@ export default function FieldsPage() {
                     </div>
 
                     <div className="grid grid-cols-1 md:grid-cols-2 gap-10 mb-16">
-                        {FIELDS.map((field) => (
-                            <div
+                        {fields.map((field) => (
+                            <InlineBlock
                                 key={field.id}
+                                path="title"
+                                paths={["title", "description", "features", "icon"]}
+                                docKey={String(field.id)}
                                 className="bg-white/90 backdrop-blur-sm rounded-xl shadow-lg p-8 hover:shadow-xl transition-shadow duration-300"
                             >
                                 <div className="flex items-start space-x-6">
                                     <div className="w-16 h-16 rounded-lg bg-primary-50 flex items-center justify-center flex-shrink-0">
-                                        <Image
+                                        <InlineImage
+                                            path="icon"
+                                            docKey={String(field.id)}
                                             src={field.icon}
                                             alt={field.title}
                                             width={32}
@@ -32,27 +41,37 @@ export default function FieldsPage() {
                                         />
                                     </div>
                                     <div>
-                                        <h3 className="text-xl font-semibold text-gray-800 mb-3">
-                                            {field.title}
-                                        </h3>
-                                        <p className="text-gray-500 mb-4">
-                                            {field.description}
-                                        </p>
+                                        <InlineText
+                                            as="h3"
+                                            path="title"
+                                            docKey={String(field.id)}
+                                            value={field.title}
+                                            className="text-xl font-semibold text-gray-800 mb-3"
+                                        />
+                                        <InlineText
+                                            as="p"
+                                            path="description"
+                                            docKey={String(field.id)}
+                                            value={field.description}
+                                            className="text-gray-500 mb-4"
+                                        />
                                         <div className="flex flex-wrap gap-2">
                                             {field.features.map(
                                                 (feature, idx) => (
-                                                    <span
+                                                    <InlineText
                                                         key={idx}
+                                                        as="span"
+                                                        path={`features[${idx}]`}
+                                                        docKey={String(field.id)}
+                                                        value={feature}
                                                         className="px-3 py-1 bg-primary-50 text-primary-700 rounded-full text-sm font-medium"
-                                                    >
-                                                        {feature}
-                                                    </span>
+                                                    />
                                                 ),
                                             )}
                                         </div>
                                     </div>
                                 </div>
-                            </div>
+                            </InlineBlock>
                         ))}
                     </div>
 

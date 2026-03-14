@@ -4,6 +4,7 @@ export interface NewsItem {
     date: string;
     category: string;
     image: string;
+    video?: string;
     excerpt: string;
     author: string;
     content: string;

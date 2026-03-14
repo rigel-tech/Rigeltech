@@ -1,14 +1,14 @@
-import { getNewsBySlug } from "../data";
+import { getNewsBySlug, getNews } from "@/lib/content/news";
 import { Metadata } from "next";
 
 export async function generateMetadata({
     params,
 }: {
-    params: { slug: string };
+    params: Promise<{ slug: string }>;
 }): Promise<Metadata> {
+    const { slug } = await params;
     try {
-        const slug = params.slug;
-        const news = getNewsBySlug(slug);
+        const news = await getNewsBySlug(slug);
 
         if (!news) {
             return {
@@ -25,5 +25,17 @@ export async function generateMetadata({
         return {
             title: "Đã xảy ra lỗi",
         };
+    }
+}
+
+export async function generateStaticParams() {
+    try {
+        const news = await getNews();
+        return news.map((item) => ({
+            slug: item.id,
+        }));
+    } catch (error) {
+        // Fallback to static if needed
+        return [];
     }
 }

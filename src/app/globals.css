@@ -65,6 +65,17 @@ body {
   @apply text-white;
 }
 
+/* Banner swiper specific styles */
+.banner-swiper {
+  height: 100% !important;
+  min-height: 600px !important;
+}
+
+.banner-swiper .swiper-slide {
+  height: 100% !important;
+  min-height: 600px !important;
+}
+
 /* Add these text shadow utilities to your existing CSS file */
 .text-shadow {
   text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.7);
@@ -97,4 +108,20 @@ h5,
 h6 {
   position: relative;
   z-index: 1;
+}
+
+/* Force light text for imported HTML that has inline dark text styles */
+@media (prefers-color-scheme: dark) {
+  .article-content,
+  .article-content * {
+    color: #f3f4f6 !important;
+  }
+
+  .article-content a {
+    color: #60a5fa !important;
+  }
+
+  .article-content img {
+    opacity: 1 !important;
+  }
 }

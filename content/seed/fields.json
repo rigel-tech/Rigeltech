@@ -1,0 +1,130 @@
+[
+  {
+    "id": 1,
+    "icon": "/icons/web-page.png",
+    "title": "Web Development",
+    "description": "Phát triển website và ứng dụng web với công nghệ hiện đại như React, Next.js. Tối ưu hóa hiệu suất và trải nghiệm người dùng.",
+    "features": [
+      "React / Next.js",
+      "Node.js",
+      "PHP / Laravel",
+      "WordPress"
+    ],
+    "status": "published",
+    "sourceKey": "fields:1",
+    "createdAt": "2026-03-14T11:45:10.002Z",
+    "updatedAt": "2026-03-14T11:45:10.002Z"
+  },
+  {
+    "id": 2,
+    "icon": "/icons/phone.png",
+    "title": "Mobile App Development",
+    "description": "Phát triển ứng dụng di động đa nền tảng iOS và Android với React Native và Flutter, đảm bảo trải nghiệm mượt mà.",
+    "features": [
+      "React Native",
+      "Flutter",
+      "iOS (Swift)",
+      "Android (Kotlin)"
+    ],
+    "status": "published",
+    "sourceKey": "fields:2",
+    "createdAt": "2026-03-14T11:45:10.002Z",
+    "updatedAt": "2026-03-14T11:45:10.002Z"
+  },
+  {
+    "id": 3,
+    "icon": "/icons/swipe.png",
+    "title": "Fintech Solutions",
+    "description": "Xây dựng các giải pháp tài chính số như ví điện tử, thanh toán trực tuyến và quản lý tài chính cá nhân.",
+    "features": [
+      "Payment Gateways",
+      "E-wallets",
+      "Financial Analytics",
+      "Blockchain Integration"
+    ],
+    "status": "published",
+    "sourceKey": "fields:3",
+    "createdAt": "2026-03-14T11:45:10.002Z",
+    "updatedAt": "2026-03-14T11:45:10.002Z"
+  },
+  {
+    "id": 4,
+    "icon": "/icons/workbench.png",
+    "title": "E-commerce Platform",
+    "description": "Phát triển nền tảng thương mại điện tử tích hợp với các cổng thanh toán và hệ thống quản lý.",
+    "features": [
+      "Online Store",
+      "Inventory Management",
+      "Payment Integration",
+      "Customer Analytics"
+    ],
+    "status": "published",
+    "sourceKey": "fields:4",
+    "createdAt": "2026-03-14T11:45:10.002Z",
+    "updatedAt": "2026-03-14T11:45:10.002Z"
+  },
+  {
+    "id": 5,
+    "icon": "/icons/page-template.png",
+    "title": "UI/UX Design",
+    "description": "Thiết kế giao diện người dùng hiện đại, thân thiện và tối ưu trải nghiệm trên mọi thiết bị.",
+    "features": [
+      "Figma",
+      "Adobe XD",
+      "Sketch",
+      "Prototype"
+    ],
+    "status": "published",
+    "sourceKey": "fields:5",
+    "createdAt": "2026-03-14T11:45:10.002Z",
+    "updatedAt": "2026-03-14T11:45:10.002Z"
+  },
+  {
+    "id": 6,
+    "icon": "/icons/link-cloud-success.png",
+    "title": "Tech Consulting",
+    "description": "Tư vấn giải pháp công nghệ, lộ trình phát triển và chuyển đổi số cho doanh nghiệp.",
+    "features": [
+      "Digital Transformation",
+      "Cloud Solutions",
+      "System Architecture",
+      "Tech Strategy"
+    ],
+    "status": "published",
+    "sourceKey": "fields:6",
+    "createdAt": "2026-03-14T11:45:10.002Z",
+    "updatedAt": "2026-03-14T11:45:10.002Z"
+  },
+  {
+    "id": 7,
+    "icon": "/icons/ring.png",
+    "title": "IoT Solutions",
+    "description": "Phát triển hệ thống Internet of Things (IoT) kết nối thiết bị thông minh, thu thập và phân tích dữ liệu từ cảm biến cho các giải pháp thông minh.",
+    "features": [
+      "Smart Home/Office",
+      "Industrial IoT",
+      "IoT Gateways",
+      "Connected Devices"
+    ],
+    "status": "published",
+    "sourceKey": "fields:7",
+    "createdAt": "2026-03-14T11:45:10.002Z",
+    "updatedAt": "2026-03-14T11:45:10.002Z"
+  },
+  {
+    "id": 8,
+    "icon": "/icons/ring.png",
+    "title": "Phát triển phần mềm tích hợp và đào tạo AI, Blockchain",
+    "description": "Cung cấp giải pháp phát triển phần mềm tích hợp, hỗ trợ ứng dụng AI và Blockchain. Chúng tôi đồng thời đào tạo và chuyển giao công nghệ, giúp doanh nghiệp triển khai hiệu quả các hệ thống thông minh, bảo mật và dễ mở rộng.",
+    "features": [
+      "Smart Home/Office",
+      "Industrial IoT",
+      "IoT Gateways",
+      "Connected Devices"
+    ],
+    "status": "published",
+    "sourceKey": "fields:8",
+    "createdAt": "2026-03-14T11:45:10.002Z",
+    "updatedAt": "2026-03-14T11:45:10.002Z"
+  }
+]

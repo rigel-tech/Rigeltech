@@ -1,14 +1,27 @@
-"use client";
-
-import { projects } from "@/app/projects/data";
-import Image from "next/image";
 import Link from "next/link";
-import { notFound, useParams } from "next/navigation";
+import { notFound } from "next/navigation";
+import { getProjectBySlug } from "@/lib/content/projects";
+import InlineImage from "@/components/admin/InlineImage";
+import InlineText from "@/components/admin/InlineText";
+import InlineVideo from "@/components/admin/InlineVideo";
 
-export default function ProjectDetail() {
-    const params = useParams();
-    const slug = params.slug as string;
-    const project = projects.find((p) => p.id === slug);
+export default async function ProjectDetail({
+    params,
+}: {
+    params: Promise<{ slug: string }>;
+}) {
+    const { slug } = await params;
+    let project = await getProjectBySlug(slug);
+
+    // Fallback to static if DB fails
+    if (!project) {
+        try {
+            const { projects } = await import("@/app/projects/data");
+            project = projects.find((p) => p.id === slug) || null;
+        } catch (error) {
+            console.error("Fallback failed:", error);
+        }
+    }
 
     if (!project) {
         notFound();
@@ -26,9 +39,13 @@ export default function ProjectDetail() {
                     </Link>
 
                     <div className="max-w-4xl mx-auto">
-                        <h1 className="text-4xl font-bold text-primary-600 mb-4">
-                            {project.title}
-                        </h1>
+                        <InlineText
+                            as="h1"
+                            path="title"
+                            docKey={project.id}
+                            value={project.title}
+                            className="text-4xl font-bold text-primary-600 mb-4"
+                        />
 
                         <div className="flex flex-wrap gap-2 mb-8">
                             {project.tech.map((tech, index) => (
@@ -41,24 +58,62 @@ export default function ProjectDetail() {
                             ))}
                         </div>
 
+                        {/* Project Image */}
+                        <div className="mb-8">
+                            <InlineImage
+                                path="image"
+                                docKey={project.id}
+                                src={project.image}
+                                alt={project.title}
+                                width={800}
+                                height={500}
+                                className="w-full h-auto rounded-lg"
+                                wrapperClassName="relative"
+                            />
+                        </div>
+
+                        {/* Project Video */}
+                        {project.video && (
+                            <div className="mb-8">
+                                <InlineVideo
+                                    path="video"
+                                    docKey={project.id}
+                                    src={project.video}
+                                    className="w-full rounded-lg"
+                                />
+                            </div>
+                        )}
+
                         <div className="prose prose-lg max-w-none">
-                            <p className="text-gray-600 dark:text-gray-300 leading-relaxed">
-                                {project.fullDescription}
-                            </p>
+                            <InlineText
+                                as="p"
+                                path="fullDescription"
+                                docKey={project.id}
+                                value={project.fullDescription}
+                                className="text-gray-600 dark:text-gray-300 leading-relaxed"
+                            />
 
                             <h2 className="text-2xl font-semibold mt-8 mb-4 text-primary-600">
                                 Thách thức
                             </h2>
-                            <p className="text-gray-600 dark:text-gray-300 leading-relaxed">
-                                {project.challenge}
-                            </p>
+                            <InlineText
+                                as="p"
+                                path="challenge"
+                                docKey={project.id}
+                                value={project.challenge}
+                                className="text-gray-600 dark:text-gray-300 leading-relaxed"
+                            />
 
                             <h2 className="text-2xl font-semibold mt-8 mb-4 text-primary-600">
                                 Giải pháp
                             </h2>
-                            <p className="text-gray-600 dark:text-gray-300 leading-relaxed">
-                                {project.solution}
-                            </p>
+                            <InlineText
+                                as="p"
+                                path="solution"
+                                docKey={project.id}
+                                value={project.solution}
+                                className="text-gray-600 dark:text-gray-300 leading-relaxed"
+                            />
 
                             <h2 className="text-2xl font-semibold mt-8 mb-4 text-primary-600">
                                 Kết quả
@@ -69,7 +124,13 @@ export default function ProjectDetail() {
                                         key={index}
                                         className="text-gray-600 dark:text-gray-300"
                                     >
-                                        {result}
+                                        <InlineText
+                                            as="span"
+                                            path={`results[${index}]`}
+                                            docKey={project.id}
+                                            value={result}
+                                            className="text-gray-600 dark:text-gray-300"
+                                        />
                                     </li>
                                 ))}
                             </ul>
@@ -80,38 +141,36 @@ export default function ProjectDetail() {
                                 </h2>
 
                                 {project.gallery.length === 1 ? (
-                                    // Single image - centered with max-width
                                     <div className="flex justify-center">
                                         <div className="max-w-2xl w-full">
-                                            <div className="relative rounded-lg overflow-hidden">
-                                                <Image
-                                                    src={project.gallery[0]}
-                                                    alt={`${project.title} gallery`}
-                                                    width={800}
-                                                    height={500}
-                                                    className="w-full h-auto"
-                                                />
-                                            </div>
+                                            <InlineImage
+                                                path="gallery[0]"
+                                                docKey={project.id}
+                                                src={project.gallery[0]}
+                                                alt={`${project.title} gallery`}
+                                                width={800}
+                                                height={500}
+                                                className="w-full h-auto"
+                                                wrapperClassName="relative rounded-lg overflow-hidden"
+                                            />
                                         </div>
                                     </div>
                                 ) : (
-                                    // Multiple images - grid layout
                                     <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
                                         {project.gallery.map((image, index) => (
-                                            <div
+                                            <InlineImage
                                                 key={index}
-                                                className="relative w-full rounded-lg overflow-hidden"
-                                            >
-                                                <Image
-                                                    src={image}
-                                                    alt={`${
-                                                        project.title
-                                                    } gallery ${index + 1}`}
-                                                    width={600}
-                                                    height={400}
-                                                    className="w-full h-auto"
-                                                />
-                                            </div>
+                                                path={`gallery[${index}]`}
+                                                docKey={project.id}
+                                                src={image}
+                                                alt={`${project.title} gallery ${
+                                                    index + 1
+                                                }`}
+                                                width={600}
+                                                height={400}
+                                                className="w-full h-auto"
+                                                wrapperClassName="relative w-full rounded-lg overflow-hidden"
+                                            />
                                         ))}
                                     </div>
                                 )}

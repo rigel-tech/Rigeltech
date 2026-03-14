@@ -1,9 +1,31 @@
+﻿"use client";
+
 import Link from "next/link";
 import Image from "next/image";
-import { serviceLinks, companyLinks } from "../../constants/footerLinks";
-import { FaMapMarkerAlt } from "react-icons/fa"; // Add this import
+import type { FooterLinks } from "@/lib/content/navigation";
+import {
+  FaFacebookF,
+  FaLinkedinIn,
+  FaMapMarkerAlt,
+  FaTwitter,
+} from "react-icons/fa";
+import type { SiteSettings } from "@/lib/content/site";
 
-export default function Footer() {
+export default function Footer({
+  site,
+  links,
+}: {
+  site: SiteSettings;
+  links?: FooterLinks;
+}) {
+  const safeLinks: FooterLinks = links || {
+    serviceLinks: [],
+    companyLinks: [],
+    socialLinks: [],
+  };
+  const companyLabel = `${site.companyName} | MST: ${site.taxId}`;
+  const hotlineLink = site.hotline.replace(/\./g, "");
+
   return (
     <footer
       className="bg-gradient-to-b from-gray-900 to-gray-950 text-white pt-12 md:pt-16 lg:pt-20 pb-8"
@@ -30,7 +52,7 @@ export default function Footer() {
               </Link>
               <div className="text-left">
                 <span className="text-xs md:text-sm text-gray-400">
-                  CÔNG TY TNHH RIGEL TECH
+                  {site.companyName}
                 </span>
               </div>
             </div>
@@ -38,8 +60,7 @@ export default function Footer() {
               className="text-gray-400 leading-relaxed text-sm md:text-base"
               itemProp="description"
             >
-              Đơn vị tiên phong trong lĩnh vực phát triển web, ứng dụng di động
-              và các giải pháp công nghệ hiện đại cho doanh nghiệp.
+              {site.description}
             </p>
             <div className="flex space-x-4">
               <a
@@ -49,7 +70,7 @@ export default function Footer() {
                 aria-label="Facebook"
                 className="hover:text-blue-400"
               >
-                <i className="fab fa-facebook-f"></i>
+                <FaFacebookF className="h-4 w-4" />
               </a>
               <a
                 href="https://twitter.com/DIGIFUND"
@@ -58,7 +79,7 @@ export default function Footer() {
                 aria-label="Twitter"
                 className="hover:text-blue-400"
               >
-                <i className="fab fa-twitter"></i>
+                <FaTwitter className="h-4 w-4" />
               </a>
               <a
                 href="https://linkedin.com/company/DIGIFUND"
@@ -67,7 +88,7 @@ export default function Footer() {
                 aria-label="LinkedIn"
                 className="hover:text-blue-400"
               >
-                <i className="fab fa-linkedin-in"></i>
+                <FaLinkedinIn className="h-4 w-4" />
               </a>
             </div>
           </div>
@@ -78,7 +99,7 @@ export default function Footer() {
               Lĩnh vực
             </h4>
             <ul className="space-y-2 md:space-y-3">
-              {serviceLinks.map((item) => (
+              {safeLinks.serviceLinks.map((item) => (
                 <li key={item.name}>
                   <Link
                     href={item.href}
@@ -97,7 +118,7 @@ export default function Footer() {
               Công ty
             </h4>
             <ul className="space-y-2 md:space-y-3">
-              {companyLinks.map((item) => (
+              {safeLinks.companyLinks.map((item) => (
                 <li key={item.name}>
                   <Link
                     href={item.href}
@@ -126,10 +147,7 @@ export default function Footer() {
                   itemScope
                   itemType="https://schema.org/PostalAddress"
                 >
-                  <span itemProp="streetAddress">
-                    CÔNG TY TNHH RIGEL TECH | MST: 0312689498
-                  </span>
-
+                  <span itemProp="streetAddress">{companyLabel}</span>
                 </a>
               </p>
               <p className="flex items-start text-sm md:text-base text-gray-400">
@@ -146,7 +164,7 @@ export default function Footer() {
                   itemType="https://schema.org/PostalAddress"
                 >
                   <span itemProp="streetAddress">
-                    Trụ sở chính: 282 Đường số 13, Phường Phước Long, TP. Hồ Chí Minh, Việt Nam.
+                    Trụ sở chính: {site.mainOffice}
                   </span>
                 </a>
               </p>
@@ -164,7 +182,7 @@ export default function Footer() {
                   itemType="https://schema.org/PostalAddress"
                 >
                   <span itemProp="streetAddress">
-                    VP giao dịch: 156 Nam Kỳ Khởi Nghĩa, Phường Sài Gòn, TP. Hồ Chí Minh, Việt Nam.
+                    VP giao dịch: {site.branchOffice}
                   </span>
                 </a>
               </p>
@@ -172,31 +190,31 @@ export default function Footer() {
               <p className="flex items-center text-sm md:text-base text-gray-400">
                 <span className="w-5 mr-2 md:mr-3 flex-shrink-0">📱</span>
                 <a
-                  href="tel:0938065499"
+                  href={`tel:${hotlineLink}`}
                   className="hover:text-primary-400 transition-colors duration-300"
                   itemProp="telephone"
                 >
-                  Hotline: 0938.065.499
+                  Hotline: {site.hotline}
                 </a>
               </p>
               <p className="flex items-center text-sm md:text-base text-gray-400">
                 <span className="w-5 mr-2 md:mr-3 flex-shrink-0">✉️</span>
                 <a
-                  href="mailto:info@dongsangviet.com"
+                  href={`mailto:${site.email}`}
                   className="hover:text-primary-400 transition-colors duration-300"
                   itemProp="email"
                 >
-                  info@dongsangviet.com
+                  {site.email}
                 </a>
               </p>
               <p className="flex items-center text-sm md:text-base text-gray-400">
                 <span className="w-5 mr-2 md:mr-3 flex-shrink-0">✉️</span>
                 <a
-                  href="mailto:info@dongsangviet.com"
+                  href={`https://${site.website}`}
                   className="hover:text-primary-400 transition-colors duration-300"
                   itemProp="email"
                 >
-                  Website: www.rigeltech.vn
+                  Website: {site.website}
                 </a>
               </p>
             </div>
@@ -230,3 +248,4 @@ export default function Footer() {
     </footer>
   );
 }
+

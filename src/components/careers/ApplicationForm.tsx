@@ -306,12 +306,14 @@ export default function ApplicationForm({ positions }: ApplicationFormProps) {
 
                     {/* CV Upload */}
                     <div>
-                        <label className="block text-white mb-2">
+                        <label htmlFor="cv" className="block text-white mb-2">
                             CV của bạn <span className="text-red-500">*</span>
                         </label>
                         <div className="relative">
                             <input
                                 type="file"
+                                id="cv"
+                                name="cv"
                                 ref={fileInputRef}
                                 onChange={handleFileChange}
                                 accept=".pdf,.doc,.docx"
