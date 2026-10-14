@@ -27,7 +27,7 @@ export const SITE_SETTINGS_FALLBACK: SiteSettings = {
     "mainOffice": "282 Đường số 13, Phường Phước Long, TP. Hồ Chí Minh, Việt Nam.",
     "branchOffice": "156 Nam Kỳ Khởi Nghĩa, Phường Sài Gòn, TP. Hồ Chí Minh, Việt Nam.",
     "hotline": "0938.065.499",
-    "email": "info@dongsangviet.com",
+    "email": "info@rigeltech.vn",
     "website": "www.rigeltech.vn",
     "workingHours": [
         {
