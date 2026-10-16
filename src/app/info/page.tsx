@@ -10,7 +10,7 @@ export default async function InfoPage() {
             <div className="container mx-auto px-4">
                 <Suspense
                     fallback={
-                        <div className="text-white text-center">Loading...</div>
+                        <div className="text-white text-center">Đang tải...</div>
                     }
                 >
                     <BusinessCardClient teamMembers={teamMembers} />

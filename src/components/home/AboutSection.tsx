@@ -69,7 +69,7 @@ export default function AboutSection({ about, docKey }: AboutSectionProps) {
                             ))}
                         </div>
                     </div>
-                    <div className="relative h-[400px] rounded-2xl overflow-hidden shadow-2xl">
+                    <div className="relative h-[400px] rounded-2xl overflow-hidden shadow-2xl bg-white flex items-center justify-center">
                         <InlineImage
                             path="about.image"
                             docKey={docKey}
@@ -77,7 +77,7 @@ export default function AboutSection({ about, docKey }: AboutSectionProps) {
                             alt={about.imageAlt || "About"}
                             width={800}
                             height={400}
-                            className="object-cover hover:scale-105 transition-transform duration-700 w-full h-full"
+                            className="object-contain w-full h-full"
                             wrapperClassName="relative w-full h-full"
                         />
                     </div>

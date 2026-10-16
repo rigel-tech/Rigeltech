@@ -11,6 +11,14 @@ interface ServiceProps {
     sourceKey?: string;
 }
 
+// Services highlighted on the home page, in display order
+const HOME_SERVICE_TITLES = [
+    "Phát triển phần mềm tích hợp và đào tạo AI, Blockchain",
+    "Dịch vụ bảo mật",
+    "Quản trị hệ thống",
+    "Tư vấn giải pháp",
+];
+
 export default function ServicesSection({
     services,
     showAll = false,
@@ -18,14 +26,18 @@ export default function ServicesSection({
     services: ServiceProps[];
     showAll?: boolean;
 }) {
-    const displayServices = showAll ? services : services.slice(0, 4);
+    const displayServices = showAll
+        ? services
+        : HOME_SERVICE_TITLES.map((title) =>
+              services.find((service) => service.title === title),
+          ).filter((service): service is ServiceProps => Boolean(service));
 
     return (
         <section className="py-20 bg-gray-50">
             <div className="container mx-auto px-4">
                 <div className="text-center mb-16">
                     <h2 className="text-3xl md:text-4xl font-bold text-primary-600 mb-6">
-                        Dịch Vụ Của Chúng Tôi
+                        Dịch vụ của chúng tôi
                     </h2>
                     <p className="text-lg text-gray-500 max-w-2xl mx-auto">
                         Giải pháp công nghệ toàn diện với quy trình chuyên

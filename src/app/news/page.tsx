@@ -13,13 +13,13 @@ export default async function NewsPage() {
             <section className="pt-32 pb-20">
                 <div className="container mx-auto px-4">
                     <h1 className="text-4xl font-bold text-primary-600 mb-12">
-                        Tin Tức & Cập Nhật
+                        Tin tức &amp; Cập nhật
                     </h1>
 
                     {/* Latest News */}
                     <div className="mb-16">
                         <h2 className="text-2xl font-semibold text-primary-600 mb-6">
-                            Tin Tức Mới Nhất
+                            Tin tức mới nhất
                         </h2>
                         <LatestNewsSwiper items={latestNews} />
                     </div>
@@ -27,9 +27,10 @@ export default async function NewsPage() {
                     {/* Popular News */}
                     <div>
                         <PaginatedNewsList
-                            title="Tin Tức Phổ Biến"
+                            title="Tin tức phổ biến"
                             items={popularNews}
                             pageSize={10}
+                            compact
                         />
                     </div>
                 </div>

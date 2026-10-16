@@ -25,11 +25,10 @@ export default function ContactPageClient({ site }: { site: SiteSettings }) {
                 <div className="container mx-auto px-4">
                     <div className="text-center mb-16">
                         <h1 className="text-4xl md:text-5xl font-bold text-primary-600 mb-6">
-                            Liên Hệ Với Chúng Tôi
+                            Liên hệ
                         </h1>
                         <p className="text-lg text-gray-500 max-w-2xl mx-auto">
-                            Hãy để lại thông tin, chúng tôi sẽ liên hệ với bạn
-                            sớm nhất
+                            Chúng tôi sẵn sàng tư vấn giải pháp phù hợp cho bạn.
                         </p>
                     </div>
 
@@ -51,7 +50,7 @@ export default function ContactPageClient({ site }: { site: SiteSettings }) {
                                 className="bg-white/90 backdrop-blur-sm rounded-xl shadow-lg p-8"
                             >
                                 <h3 className="text-xl font-semibold text-primary-600 mb-6">
-                                    Thông Tin Liên Hệ
+                                    Thông tin liên hệ
                                 </h3>
                                 <div className="space-y-4">
                                     <div className="flex items-start space-x-4">
@@ -91,10 +90,10 @@ export default function ContactPageClient({ site }: { site: SiteSettings }) {
                                         </div>
                                     </div>
                                     <div className="flex items-start space-x-4">
-                                        <span className="text-2xl">📍</span>
+                                        <span className="text-2xl">🏢</span>
                                         <div>
                                             <h4 className="font-medium text-gray-800">
-                                                VP giao dịch
+                                                Văn phòng giao dịch
                                             </h4>
                                             <InlineText
                                                 as="p"
@@ -106,7 +105,7 @@ export default function ContactPageClient({ site }: { site: SiteSettings }) {
                                         </div>
                                     </div>
                                     <div className="flex items-start space-x-4">
-                                        <span className="text-2xl">📞</span>
+                                        <span className="text-2xl">☎️</span>
                                         <div>
                                             <h4 className="font-medium text-gray-800">
                                                 Hotline
@@ -139,7 +138,7 @@ export default function ContactPageClient({ site }: { site: SiteSettings }) {
                                         <span className="text-2xl">🌐</span>
                                         <div>
                                             <h4 className="font-medium text-gray-800">
-                                                Website:
+                                                Website
                                             </h4>
 
                                             <InlineText
@@ -192,7 +191,7 @@ export default function ContactPageClient({ site }: { site: SiteSettings }) {
                         {/* Contact Form */}
                         <div className="bg-white/90 backdrop-blur-sm rounded-xl shadow-lg p-8">
                             <h3 className="text-xl font-semibold text-primary-600 mb-6">
-                                Gửi tin nhắn cho chúng tôi
+                                Gửi yêu cầu
                             </h3>
                             <form onSubmit={handleSubmit} className="space-y-6">
                                 <div>
@@ -203,7 +202,7 @@ export default function ContactPageClient({ site }: { site: SiteSettings }) {
                                         type="text"
                                         id="name"
                                         name="name"
-                                        placeholder="Nhập họ và tên của bạn"
+                                        placeholder="Nhập họ và tên"
                                         title="Họ và tên"
                                         aria-label="Họ và tên"
                                         className="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-primary-500 focus:border-primary-500"
@@ -225,7 +224,7 @@ export default function ContactPageClient({ site }: { site: SiteSettings }) {
                                         type="email"
                                         id="email"
                                         name="email"
-                                        placeholder="Nhập email của bạn"
+                                        placeholder="Nhập email"
                                         title="Email"
                                         aria-label="Email"
                                         className="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-primary-500 focus:border-primary-500"
@@ -247,7 +246,7 @@ export default function ContactPageClient({ site }: { site: SiteSettings }) {
                                         type="tel"
                                         id="phone"
                                         name="phone"
-                                        placeholder="Nhập số điện thoại của bạn"
+                                        placeholder="Nhập số điện thoại"
                                         title="Số điện thoại"
                                         aria-label="Số điện thoại"
                                         className="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-primary-500 focus:border-primary-500"
@@ -262,15 +261,15 @@ export default function ContactPageClient({ site }: { site: SiteSettings }) {
                                 </div>
                                 <div>
                                     <label htmlFor="subject" className="block text-sm font-medium text-gray-700 mb-2">
-                                        Tiêu đề
+                                        Chủ đề
                                     </label>
                                     <input
                                         type="text"
                                         id="subject"
                                         name="subject"
-                                        placeholder="Nhập tiêu đề tin nhắn"
-                                        title="Tiêu đề"
-                                        aria-label="Tiêu đề"
+                                        placeholder="Chọn chủ đề liên hệ"
+                                        title="Chủ đề"
+                                        aria-label="Chủ đề"
                                         className="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-primary-500 focus:border-primary-500"
                                         required
                                         value={formData.subject}
@@ -290,7 +289,7 @@ export default function ContactPageClient({ site }: { site: SiteSettings }) {
                                         id="message"
                                         name="message"
                                         rows={4}
-                                        placeholder="Nhập nội dung tin nhắn"
+                                        placeholder="Nội dung cần hỗ trợ"
                                         title="Nội dung"
                                         aria-label="Nội dung"
                                         className="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-primary-500 focus:border-primary-500"
@@ -308,7 +307,7 @@ export default function ContactPageClient({ site }: { site: SiteSettings }) {
                                     type="submit"
                                     className="w-full py-3 px-6 bg-primary-600 text-white rounded-lg hover:bg-primary-700 transition-colors duration-200"
                                 >
-                                    Gửi tin nhắn
+                                    Gửi yêu cầu
                                 </button>
                             </form>
                         </div>

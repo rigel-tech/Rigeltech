@@ -46,7 +46,7 @@ export default function ApplicationForm({ positions }: ApplicationFormProps) {
 
             // Validate file size (max 5MB)
             if (file.size > 5 * 1024 * 1024) {
-                setError("File CV không được lớn hơn 5MB");
+                setError("Tệp quá lớn, vui lòng chọn tệp dưới 5MB.");
                 setFileSelected(false);
                 setFileName("");
                 return;
@@ -59,7 +59,7 @@ export default function ApplicationForm({ positions }: ApplicationFormProps) {
                 "application/vnd.openxmlformats-officedocument.wordprocessingml.document",
             ];
             if (!allowedTypes.includes(file.type)) {
-                setError("Chỉ chấp nhận file PDF hoặc DOCX");
+                setError("Định dạng không hợp lệ, vui lòng dùng PDF hoặc DOC/DOCX.");
                 setFileSelected(false);
                 setFileName("");
                 return;
@@ -87,7 +87,7 @@ export default function ApplicationForm({ positions }: ApplicationFormProps) {
 
         // Validate form
         if (!fileSelected) {
-            setError("Vui lòng đính kèm CV của bạn");
+            setError("Vui lòng đính kèm CV trước khi gửi.");
             setSubmitting(false);
             return;
         }
@@ -117,7 +117,7 @@ export default function ApplicationForm({ positions }: ApplicationFormProps) {
             }, 5000);
         } catch (err) {
             setError(
-                "Có lỗi xảy ra khi gửi đơn ứng tuyển. Vui lòng thử lại sau.",
+                "Gửi hồ sơ thất bại, vui lòng thử lại.",
             );
         } finally {
             setSubmitting(false);
@@ -129,11 +129,10 @@ export default function ApplicationForm({ positions }: ApplicationFormProps) {
             {submitted ? (
                 <div className="bg-green-500/20 text-green-400 p-6 rounded-lg text-center">
                     <h3 className="text-xl font-semibold mb-2">
-                        Gửi đơn ứng tuyển thành công!
+                        Nộp hồ sơ thành công
                     </h3>
                     <p>
-                        Chúng tôi sẽ liên hệ với bạn sớm nhất có thể. Cảm ơn bạn
-                        đã quan tâm đến DIGIFUND.
+                        Cảm ơn bạn đã ứng tuyển. Chúng tôi sẽ liên hệ sớm nhất.
                     </p>
                 </div>
             ) : (
@@ -257,19 +256,19 @@ export default function ApplicationForm({ positions }: ApplicationFormProps) {
                                     className="w-full px-4 py-3 pr-10 rounded-lg bg-white/5 border border-white/10 text-white focus:border-primary-500 focus:outline-none focus:ring-1 focus:ring-primary-500 appearance-none"
                                 >
                                     <option value="" disabled>
-                                        Chọn kinh nghiệm
+                                        Chọn mức kinh nghiệm
                                     </option>
                                     <option value="fresher">
-                                        Fresher (0-1 năm)
+                                        Fresher
                                     </option>
                                     <option value="junior">
-                                        Junior (1-2 năm)
+                                        Junior
                                     </option>
                                     <option value="mid">
-                                        Mid-level (2-4 năm)
+                                        Mid-level
                                     </option>
                                     <option value="senior">
-                                        Senior (4+ năm)
+                                        Senior
                                     </option>
                                 </select>
                                 <div className="pointer-events-none absolute inset-y-0 right-0 flex items-center px-3 text-white/60">
@@ -290,7 +289,7 @@ export default function ApplicationForm({ positions }: ApplicationFormProps) {
                                 htmlFor="linkedin"
                                 className="block text-white mb-2"
                             >
-                                LinkedIn (nếu có)
+                                LinkedIn
                             </label>
                             <input
                                 type="url"
@@ -298,7 +297,7 @@ export default function ApplicationForm({ positions }: ApplicationFormProps) {
                                 name="linkedin"
                                 value={formData.linkedin}
                                 onChange={handleChange}
-                                placeholder="https://linkedin.com/in/username"
+                                placeholder="Nhập liên kết LinkedIn"
                                 className="w-full px-4 py-3 rounded-lg bg-white/5 border border-white/10 text-white focus:border-primary-500 focus:outline-none focus:ring-1 focus:ring-primary-500"
                             />
                         </div>
@@ -307,7 +306,7 @@ export default function ApplicationForm({ positions }: ApplicationFormProps) {
                     {/* CV Upload */}
                     <div>
                         <label htmlFor="cv" className="block text-white mb-2">
-                            CV của bạn <span className="text-red-500">*</span>
+                            Tải CV <span className="text-red-500">*</span>
                         </label>
                         <div className="relative">
                             <input
@@ -335,16 +334,15 @@ export default function ApplicationForm({ positions }: ApplicationFormProps) {
                                     <span>
                                         {fileSelected
                                             ? fileName
-                                            : "Đính kèm CV (PDF, DOCX)"}
+                                            : "Đính kèm CV"}
                                     </span>
                                 </div>
                                 <span className="text-sm font-medium text-primary-400">
-                                    Chọn file
+                                    Chọn tệp
                                 </span>
                             </div>
                             <div className="mt-1 text-xs text-white/60">
-                                Dung lượng tối đa: 5MB. Định dạng: PDF, DOC,
-                                DOCX
+                                Chấp nhận PDF/DOC, tối đa 5MB
                             </div>
                         </div>
                     </div>
@@ -355,7 +353,7 @@ export default function ApplicationForm({ positions }: ApplicationFormProps) {
                             htmlFor="message"
                             className="block text-white mb-2"
                         >
-                            Giới thiệu bản thân
+                            Giới thiệu thêm
                         </label>
                         <textarea
                             id="message"
@@ -363,7 +361,7 @@ export default function ApplicationForm({ positions }: ApplicationFormProps) {
                             value={formData.message}
                             onChange={handleChange}
                             rows={4}
-                            placeholder="Giới thiệu ngắn gọn về bạn và mong muốn khi ứng tuyển vào DIGIFUND"
+                            placeholder="Chia sẻ thêm về bạn hoặc dự án đã làm"
                             className="w-full px-4 py-3 rounded-lg bg-white/5 border border-white/10 text-white focus:border-primary-500 focus:outline-none focus:ring-1 focus:ring-primary-500"
                         ></textarea>
                     </div>
@@ -410,7 +408,7 @@ export default function ApplicationForm({ positions }: ApplicationFormProps) {
                                 Đang gửi...
                             </>
                         ) : (
-                            "Gửi đơn ứng tuyển"
+                            "Gửi hồ sơ"
                         )}
                     </button>
                 </form>

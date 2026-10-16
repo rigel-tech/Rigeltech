@@ -4,8 +4,8 @@ import InlineBlock from "@/components/admin/InlineBlock";
 import InlineText from "@/components/admin/InlineText";
 
 export const metadata: Metadata = {
-    title: "Chính sách bảo mật | DIGIFUND",
-    description: "Chính sách bảo mật và quyền riêng tư của DIGIFUND",
+    title: "Chính sách bảo mật",
+    description: "Cam kết bảo vệ dữ liệu và quyền riêng tư của bạn.",
 };
 
 export default async function PrivacyPolicy() {

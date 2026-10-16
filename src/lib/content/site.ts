@@ -23,7 +23,7 @@ export const SITE_SETTINGS_FALLBACK: SiteSettings = {
     "key": "default",
     "companyName": "CÔNG TY TNHH RIGEL TECH",
     "taxId": "0312689498",
-    "description": "Đơn vị tiên phong trong lĩnh vực phát triển web, ứng dụng di động và các giải pháp công nghệ hiện đại cho doanh nghiệp.",
+    "description": "Kiến tạo giá trị từ công nghệ",
     "mainOffice": "282 Đường số 13, Phường Phước Long, TP. Hồ Chí Minh, Việt Nam.",
     "branchOffice": "156 Nam Kỳ Khởi Nghĩa, Phường Sài Gòn, TP. Hồ Chí Minh, Việt Nam.",
     "hotline": "0938.065.499",
@@ -31,12 +31,12 @@ export const SITE_SETTINGS_FALLBACK: SiteSettings = {
     "website": "www.rigeltech.vn",
     "workingHours": [
         {
-            "label": "Thứ 2 - Thứ 7:",
-            "value": "8:00 - 17:00"
+            "label": "Thứ 2 - Thứ 6",
+            "value": "08:00 - 17:30"
         },
         {
-            "label": "Chủ nhật:",
-            "value": "Nghỉ"
+            "label": "Thứ 7",
+            "value": "08:00 - 12:00"
         }
     ]
 };

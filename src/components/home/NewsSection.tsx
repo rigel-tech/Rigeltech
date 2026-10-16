@@ -2,11 +2,11 @@ import { getLatestNews } from "@/lib/content/news";
 import { LatestNewsSwiper } from "@/components/news/NewsSwiper";
 
 export default async function NewsSection() {
-    const latestNews = await getLatestNews();
+    const latestNews = await getLatestNews({ limit: 3 });
 
     return (
-        <section className="py-20">
-            <div className="container mx-auto px-4">
+        <section className="mb-16">
+            <div className="mb-8">
                 <h2 className="text-4xl font-bold text-center mb-4 bg-clip-text text-transparent bg-gradient-to-r from-primary-600 to-primary-800">
                     Tin tức nổi bật
                 </h2>

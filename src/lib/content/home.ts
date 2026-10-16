@@ -84,12 +84,12 @@ const HOME_FALLBACK: HomeContent = {
     about: {
         title: "Về RIGEL TECH",
         heading: "Sáng tạo & Chuyên môn",
-        body: "RIGEL TECH là công ty công nghệ với đội ngũ kỹ sư phần mềm giàu nhiệt huyết và sáng tạo. Chúng tôi chuyên phát triển các giải pháp web hiện đại và ứng dụng di động thông minh, giúp doanh nghiệp bắt kịp xu hướng công nghệ mới.",
+        body: "RIGEL TECH là công ty công nghệ với đội ngũ kỹ sư phần mềm giàu nhiệt huyết và sáng tạo. Chúng tôi chuyên phát triển các giải pháp web hiện đại và ứng dụng di động thông minh, giúp doanh nghiệp bắt kịp xu hướng công nghệ mới",
         stats: [
             { value: "15+", label: "Chuyên gia công nghệ" },
             { value: "20+", label: "Dự án đang phát triển" },
         ],
-        image: "/about-bg.png",
+        image: "/media/1773983652336-f841d462-6657-45d5-9a80-1f4b83d735dd.jpg",
         imageAlt: "About Us",
     },
     clients: {

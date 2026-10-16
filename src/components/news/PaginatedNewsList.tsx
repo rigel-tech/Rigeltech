@@ -11,6 +11,7 @@ type PaginatedNewsListProps = {
     items: NewsItem[];
     pageSize?: number;
     title: string;
+    compact?: boolean;
 };
 
 const PAGE_BUTTONS_TO_SHOW = 5;
@@ -19,6 +20,7 @@ export default function PaginatedNewsList({
     items,
     pageSize = 10,
     title,
+    compact = false,
 }: PaginatedNewsListProps) {
     const [page, setPage] = useState(1);
 
@@ -52,13 +54,48 @@ export default function PaginatedNewsList({
             <h2 className="text-2xl font-semibold text-primary-600 mb-6">
                 {title}
             </h2>
-            <div className="space-y-4">
+            <div className={compact ? "space-y-2" : "space-y-4"}>
                 {pageItems.map((news) => (
                     <Link
                         href={`/news/${news.id}`}
                         key={news.id}
-                        className="block rounded-lg bg-white/10 backdrop-blur-sm shadow-sm hover:shadow-md transition-shadow duration-200"
+                        className={
+                            compact
+                                ? "block rounded-md border border-white/10 bg-white/5 px-3 py-2 hover:bg-white/10 transition-colors"
+                                : "block rounded-lg bg-white/10 backdrop-blur-sm shadow-sm hover:shadow-md transition-shadow duration-200"
+                        }
                     >
+                        {compact ? (
+                            <div className="flex items-center gap-3">
+                                {news.image ? (
+                                    <InlineImage
+                                        path="image"
+                                        docKey={news.id}
+                                        src={news.image}
+                                        alt={news.title}
+                                        width={72}
+                                        height={54}
+                                        className="h-[54px] w-[72px] rounded object-cover"
+                                    />
+                                ) : null}
+                                <div className="flex-1">
+                                    <InlineText
+                                        as="h3"
+                                        path="title"
+                                        docKey={news.id}
+                                        value={news.title}
+                                        className="text-sm font-semibold text-white line-clamp-2"
+                                    />
+                                    <InlineText
+                                        as="span"
+                                        path="date"
+                                        docKey={news.id}
+                                        value={news.date}
+                                        className="text-xs text-white/60 whitespace-nowrap"
+                                    />
+                                </div>
+                            </div>
+                        ) : (
                         <div className="flex flex-col md:flex-row gap-4 p-4">
                             <div className="relative h-32 w-full md:w-48 flex-shrink-0">
                                 <InlineImage
@@ -113,6 +150,7 @@ export default function PaginatedNewsList({
                                 />
                             </div>
                         </div>
+                        )}
                     </Link>
                 ))}
             </div>

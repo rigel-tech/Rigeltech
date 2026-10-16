@@ -6,6 +6,6 @@ export default function robots(): MetadataRoute.Robots {
             userAgent: "*",
             allow: "/",
         },
-        sitemap: "https://digifund.com.vn/sitemap.xml",
+        sitemap: "https://rigeltech.vn/sitemap.xml",
     };
 }

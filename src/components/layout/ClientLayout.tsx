@@ -83,7 +83,11 @@ export default function ClientLayout({
     return (
         <>
             {showHeaderFooter && <Header />}
-            {children}
+            {showHeaderFooter ? (
+                <main className="pt-[84px] lg:pt-[120px]">{children}</main>
+            ) : (
+                children
+            )}
             {showHeaderFooter && <Footer site={site} links={links} />}
         </>
     );

@@ -35,14 +35,15 @@ export default async function NewsDetail({
     return (
         <main className="min-h-screen">
             <article className="pt-32 pb-20">
-                <div className="container mx-auto px-4 max-w-4xl">
+                <div className="container mx-auto px-4 max-w-full lg:max-w-7xl">
                     {/* Breadcrumb */}
                     <div className="mb-8">
                         <Link
                             href="/news"
                             className="text-primary-600 hover:text-primary-700 flex items-center gap-2"
                         >
-                            ← Quay lại Tin tức
+                            <span aria-hidden="true">←</span>
+                            <span>Tin tức &amp; Cập nhật</span>
                         </Link>
                     </div>
 
@@ -55,9 +56,9 @@ export default async function NewsDetail({
                             value={news.title}
                             className="text-4xl font-bold text-primary-800 mb-4"
                         />
-                        <div className="flex items-center gap-4 text-primary-600">
+                        <div className="flex flex-wrap items-center gap-4 text-primary-600">
                             <span>
-                                📅{" "}
+                                Ngày:{" "}
                                 <InlineText
                                     as="span"
                                     path="date"
@@ -65,34 +66,35 @@ export default async function NewsDetail({
                                     value={news.date}
                                 />
                             </span>
-                            <span>
-                                👤{" "}
-                                <InlineText
-                                    as="span"
-                                    path="author"
-                                    docKey={news.id}
-                                    value={news.author}
-                                />
-                            </span>
-                            <span>
-                                📂{" "}
-                                <InlineText
-                                    as="span"
-                                    path="category"
-                                    docKey={news.id}
-                                    value={news.category}
-                                />
-                            </span>
+                            {news.author ? (
+                                <span>
+                                    <InlineText
+                                        as="span"
+                                        path="author"
+                                        docKey={news.id}
+                                        value={news.author}
+                                    />
+                                </span>
+                            ) : null}
+                            {news.category ? (
+                                <span>
+                                    <InlineText
+                                        as="span"
+                                        path="category"
+                                        docKey={news.id}
+                                        value={news.category}
+                                    />
+                                </span>
+                            ) : null}
                             {news.views ? (
                                 <span>
-                                    👁️{" "}
+                                    Lượt xem:{" "}
                                     <InlineText
                                         as="span"
                                         path="views"
                                         docKey={news.id}
                                         value={String(news.views)}
-                                    />{" "}
-                                    lượt xem
+                                    />
                                 </span>
                             ) : null}
                         </div>
@@ -106,6 +108,7 @@ export default async function NewsDetail({
                         alt={news.title}
                         fill
                         priority
+                        sizes="(max-width: 1024px) 100vw, 1200px"
                         className="object-cover rounded-xl"
                         wrapperClassName="relative h-[400px] mb-8"
                     />
@@ -122,7 +125,7 @@ export default async function NewsDetail({
 
                     {/* Article Content */}
                     <div
-                        className="prose prose-lg max-w-none dark:prose-invert prose-headings:text-white prose-p:text-white/90 prose-a:text-primary-600 hover:prose-a:text-primary-700"
+                        className="prose prose-lg max-w-full dark:prose-invert prose-headings:text-white prose-p:text-white/90 prose-a:text-primary-600 hover:prose-a:text-primary-700 prose-img:w-full prose-img:h-auto prose-img:rounded-lg prose-img:my-6"
                         dangerouslySetInnerHTML={{ __html: news.content }}
                     />
                 </div>

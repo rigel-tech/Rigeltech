@@ -4,8 +4,8 @@ import InlineBlock from "@/components/admin/InlineBlock";
 import InlineText from "@/components/admin/InlineText";
 
 export const metadata: Metadata = {
-    title: "Điều khoản sử dụng | DIGIFUND",
-    description: "Điều khoản sử dụng dịch vụ của DIGIFUND",
+    title: "Điều khoản sử dụng",
+    description: "Các điều khoản và điều kiện khi sử dụng dịch vụ.",
 };
 
 export default async function TermsOfUse() {

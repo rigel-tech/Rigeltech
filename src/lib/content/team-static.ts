@@ -27,7 +27,7 @@ export const TEAM_MEMBERS: TeamMember[] = [
         },
         "phone": "02873033268",
         "mobile": "0938065499",
-        "email": "truong.huynh@digifund.tech",
+        "email": "truong.huynh@dongsangviet.com",
         "qrCode": "/qr-code-truong.png"
     },
     {
@@ -41,7 +41,7 @@ export const TEAM_MEMBERS: TeamMember[] = [
             "en": "Financial Advisor & Co-Founder"
         },
         "mobile": "0909671618",
-        "email": "thien.thieu@digifund.tech",
+        "email": "thien.thieu@rigeltech.tech",
         "qrCode": "/qr-code-thien.png"
     },
     {
@@ -55,7 +55,7 @@ export const TEAM_MEMBERS: TeamMember[] = [
             "en": "Mobile App Manager"
         },
         "mobile": "0921999393",
-        "email": "quang.pham@digifund.tech",
+        "email": "quang.pham@rigeltech.tech",
         "qrCode": "/qr-code-quang.png"
     },
     {
@@ -69,7 +69,7 @@ export const TEAM_MEMBERS: TeamMember[] = [
             "en": "Leader"
         },
         "mobile": "0835666356",
-        "email": "tuan.nguyen@digifund.tech",
+        "email": "tuan.nguyen@rigeltech.tech",
         "qrCode": "/qr-code-tuan.png"
     },
     {
@@ -83,7 +83,7 @@ export const TEAM_MEMBERS: TeamMember[] = [
             "en": "DevOps Manager"
         },
         "mobile": "0914696665",
-        "email": "hau.nguyen@digifund.tech",
+        "email": "hau.nguyen@rigeltech.tech",
         "qrCode": "/qr-code-hau.png"
     },
     {
@@ -97,7 +97,7 @@ export const TEAM_MEMBERS: TeamMember[] = [
             "en": "Assistant Director"
         },
         "mobile": "0988666888",
-        "email": "dat.nguyen@digifund.tech",
+        "email": "dat.nguyen@rigeltech.tech",
         "qrCode": "/qr-code-dat.png"
     }
 ];

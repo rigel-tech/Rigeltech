@@ -127,13 +127,15 @@ const normalizeNews = async (items: NewsDoc[]): Promise<NewsItem[]> => {
     );
 };
 
+const STATIC_LATEST_LIMIT = 9;
+
 export const getLatestNews = async (options: NewsQueryOptions = {}) => {
     const mode = getSourceMode();
     const allowDbFallback = Boolean(process.env.MONGODB_URI);
 
     if (mode === "static" && !allowDbFallback) {
-        const fallback = newsData.filter((news) => !news.isPopular);
-        return options.limit ? fallback.slice(0, options.limit) : fallback;
+        // Static data is stored in the same order the live site lists it
+        return newsData.slice(0, options.limit ?? STATIC_LATEST_LIMIT);
     }
 
     const mergeWithSeed = async (seedItems: NewsItem[]) => {

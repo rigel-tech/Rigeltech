@@ -12,19 +12,16 @@ export default async function RecruitPage() {
             <section className="pt-32 pb-20">
                 <div className="container mx-auto px-4">
                     <h1 className="text-4xl font-bold text-primary-600 mb-4">
-                        Tuyển Dụng
+                        Cơ hội nghề nghiệp
                     </h1>
                     <p className="text-white/80 text-lg mb-12 max-w-3xl">
-                        Tham gia DIGIFUND để phát triển sự nghiệp trong môi
-                        trường năng động và sáng tạo. Chúng tôi đang tìm kiếm
-                        các tài năng để cùng xây dựng những giải pháp công nghệ
-                        hiện đại.
+                        Gia nhập Rigel Tech để xây dựng các giải pháp tài chính số hiện đại.
                     </p>
 
                     {/* Open Positions */}
                     <div className="mb-16">
                         <h2 className="text-2xl font-semibold text-primary-600 mb-6">
-                            Vị Trí Đang Tuyển
+                            Vị trí đang tuyển
                         </h2>
                         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
                             {openPositions.map((position, index) => (
@@ -85,7 +82,7 @@ export default async function RecruitPage() {
                                             href="#apply-form"
                                             className="block w-full text-center py-2.5 px-4 bg-primary-600 hover:bg-primary-700 text-white rounded-lg transition-colors duration-300 mt-auto"
                                         >
-                                            Ứng Tuyển Ngay
+                                            Ứng tuyển ngay
                                         </Link>
                                     </div>
                                 </InlineBlock>
@@ -96,39 +93,43 @@ export default async function RecruitPage() {
                     {/* Company Culture */}
                     <div className="mb-16">
                         <h2 className="text-2xl font-semibold text-primary-600 mb-6">
-                            Phúc Lợi
+                            Phúc lợi &amp; môi trường
                         </h2>
                         <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
                             <div className="bg-white/10 backdrop-blur-sm rounded-xl p-6 shadow-md">
-                                <div className="mb-4 text-3xl">🚀</div>
+                                <svg stroke="currentColor" fill="none" strokeWidth="2" viewBox="0 0 24 24" strokeLinecap="round" strokeLinejoin="round" className="mb-4 text-3xl text-primary-300" aria-hidden="true" height="1em" width="1em" xmlns="http://www.w3.org/2000/svg">
+                                    <line x1="12" y1="1" x2="12" y2="23" />
+                                    <path d="M17 5H9.5a3.5 3.5 0 0 0 0 7h5a3.5 3.5 0 0 1 0 7H6" />
+                                </svg>
                                 <h3 className="text-xl font-semibold text-white mb-3">
-                                    Phát Triển Kỹ Năng
+                                    Lương thưởng cạnh tranh
                                 </h3>
                                 <p className="text-white/70">
-                                    Cơ hội học hỏi với các dự án đa dạng và
-                                    chương trình đào tạo chuyên sâu.
+                                    Chính sách đãi ngộ rõ ràng, minh bạch và hấp dẫn.
                                 </p>
                             </div>
-
                             <div className="bg-white/10 backdrop-blur-sm rounded-xl p-6 shadow-md">
-                                <div className="mb-4 text-3xl">💼</div>
+                                <svg stroke="currentColor" fill="none" strokeWidth="2" viewBox="0 0 24 24" strokeLinecap="round" strokeLinejoin="round" className="mb-4 text-3xl text-primary-300" aria-hidden="true" height="1em" width="1em" xmlns="http://www.w3.org/2000/svg">
+                                    <circle cx="12" cy="12" r="3" />
+                                    <path d="M19.4 15a1.65 1.65 0 0 0 .33 1.82l.06.06a2 2 0 0 1 0 2.83 2 2 0 0 1-2.83 0l-.06-.06a1.65 1.65 0 0 0-1.82-.33 1.65 1.65 0 0 0-1 1.51V21a2 2 0 0 1-2 2 2 2 0 0 1-2-2v-.09A1.65 1.65 0 0 0 9 19.4a1.65 1.65 0 0 0-1.82.33l-.06.06a2 2 0 0 1-2.83 0 2 2 0 0 1 0-2.83l.06-.06a1.65 1.65 0 0 0 .33-1.82 1.65 1.65 0 0 0-1.51-1H3a2 2 0 0 1-2-2 2 2 0 0 1 2-2h.09A1.65 1.65 0 0 0 4.6 9a1.65 1.65 0 0 0-.33-1.82l-.06-.06a2 2 0 0 1 0-2.83 2 2 0 0 1 2.83 0l.06.06a1.65 1.65 0 0 0 1.82.33H9a1.65 1.65 0 0 0 1-1.51V3a2 2 0 0 1 2-2 2 2 0 0 1 2 2v.09a1.65 1.65 0 0 0 1 1.51 1.65 1.65 0 0 0 1.82-.33l.06-.06a2 2 0 0 1 2.83 0 2 2 0 0 1 0 2.83l-.06.06a1.65 1.65 0 0 0-.33 1.82V9a1.65 1.65 0 0 0 1.51 1H21a2 2 0 0 1 2 2 2 2 0 0 1-2 2h-.09a1.65 1.65 0 0 0-1.51 1z" />
+                                </svg>
                                 <h3 className="text-xl font-semibold text-white mb-3">
-                                    Môi Trường Hiện Đại
+                                    Công nghệ hiện đại
                                 </h3>
                                 <p className="text-white/70">
-                                    Không gian làm việc sáng tạo với cơ hội làm
-                                    việc linh hoạt.
+                                    Làm việc với AI, Blockchain, Cloud và hệ thống ngân hàng số.
                                 </p>
                             </div>
-
                             <div className="bg-white/10 backdrop-blur-sm rounded-xl p-6 shadow-md">
-                                <div className="mb-4 text-3xl">🎁</div>
+                                <svg stroke="currentColor" fill="none" strokeWidth="2" viewBox="0 0 24 24" strokeLinecap="round" strokeLinejoin="round" className="mb-4 text-3xl text-primary-300" aria-hidden="true" height="1em" width="1em" xmlns="http://www.w3.org/2000/svg">
+                                    <polyline points="23 6 13.5 15.5 8.5 10.5 1 18" />
+                                    <polyline points="17 6 23 6 23 12" />
+                                </svg>
                                 <h3 className="text-xl font-semibold text-white mb-3">
-                                    Chế Độ Đãi Ngộ
+                                    Phát triển nghề nghiệp
                                 </h3>
                                 <p className="text-white/70">
-                                    Bảo hiểm sức khỏe, du lịch thường niên và
-                                    các hoạt động team building.
+                                    Đào tạo liên tục và lộ trình thăng tiến rõ ràng.
                                 </p>
                             </div>
                         </div>
@@ -137,7 +138,7 @@ export default async function RecruitPage() {
                     {/* Application Form */}
                     <div id="apply-form" className="mt-16 pt-8">
                         <h2 className="text-2xl font-semibold text-primary-600 mb-6">
-                            Ứng Tuyển Vị Trí
+                            Đăng ký ứng tuyển
                         </h2>
                         <div className="bg-white/10 backdrop-blur-sm rounded-xl p-8">
                             <ApplicationForm positions={openPositions} />

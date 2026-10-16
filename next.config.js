@@ -10,6 +10,15 @@ const supabaseHostname = (() => {
 })()
 
 const nextConfig = {
+  // The previous site served every page under /vi (and /en); keep those links working
+  async redirects() {
+    return [
+      { source: '/vi', destination: '/', permanent: true },
+      { source: '/en', destination: '/', permanent: true },
+      { source: '/vi/:path*', destination: '/:path*', permanent: true },
+      { source: '/en/:path*', destination: '/:path*', permanent: true },
+    ]
+  },
   // Optimize CSS loading
   experimental: {
     optimizeCss: true,

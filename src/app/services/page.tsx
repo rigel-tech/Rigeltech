@@ -12,11 +12,10 @@ export default async function ServicesPage() {
                 <div className="container mx-auto px-4">
                     <div className="text-center mb-16">
                         <h1 className="text-4xl md:text-5xl font-bold text-primary-600 mb-6">
-                            Dịch Vụ Của Chúng Tôi
+                            Dịch vụ &amp; Giải pháp
                         </h1>
                         <p className="text-lg text-gray-500 max-w-2xl mx-auto">
-                            Giải pháp công nghệ toàn diện với quy trình chuyên
-                            nghiệp
+                            Tư vấn, thiết kế, triển khai và vận hành hệ thống số hóa toàn diện cho doanh nghiệp và ngân hàng đối tác.
                         </p>
                     </div>
 

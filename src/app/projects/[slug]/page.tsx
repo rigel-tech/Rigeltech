@@ -4,6 +4,11 @@ import { getProjectBySlug } from "@/lib/content/projects";
 import InlineImage from "@/components/admin/InlineImage";
 import InlineText from "@/components/admin/InlineText";
 import InlineVideo from "@/components/admin/InlineVideo";
+import EcosystemProjectDetail from "@/components/projects/EcosystemProjectDetail";
+import { textToHtml } from "@/lib/htmlToText";
+
+const toHtml = (value: string) =>
+    /<\/?[a-z][\s\S]*>/i.test(value) ? value : textToHtml(value);
 
 export default async function ProjectDetail({
     params,
@@ -25,6 +30,15 @@ export default async function ProjectDetail({
 
     if (!project) {
         notFound();
+    }
+
+    if (project.ecosystem) {
+        return (
+            <EcosystemProjectDetail
+                project={project}
+                ecosystem={project.ecosystem}
+            />
+        );
     }
 
     return (
@@ -85,12 +99,11 @@ export default async function ProjectDetail({
                         )}
 
                         <div className="prose prose-lg max-w-none">
-                            <InlineText
-                                as="p"
-                                path="fullDescription"
-                                docKey={project.id}
-                                value={project.fullDescription}
+                            <div
                                 className="text-gray-600 dark:text-gray-300 leading-relaxed"
+                                dangerouslySetInnerHTML={{
+                                    __html: toHtml(project.fullDescription),
+                                }}
                             />
 
                             <h2 className="text-2xl font-semibold mt-8 mb-4 text-primary-600">
@@ -101,7 +114,7 @@ export default async function ProjectDetail({
                                 path="challenge"
                                 docKey={project.id}
                                 value={project.challenge}
-                                className="text-gray-600 dark:text-gray-300 leading-relaxed"
+                                className="text-gray-600 dark:text-gray-300 leading-relaxed whitespace-pre-line break-words"
                             />
 
                             <h2 className="text-2xl font-semibold mt-8 mb-4 text-primary-600">
@@ -112,7 +125,7 @@ export default async function ProjectDetail({
                                 path="solution"
                                 docKey={project.id}
                                 value={project.solution}
-                                className="text-gray-600 dark:text-gray-300 leading-relaxed"
+                                className="text-gray-600 dark:text-gray-300 leading-relaxed whitespace-pre-line break-words"
                             />
 
                             <h2 className="text-2xl font-semibold mt-8 mb-4 text-primary-600">
@@ -134,7 +147,9 @@ export default async function ProjectDetail({
                                     </li>
                                 ))}
                             </ul>
+                        </div>
 
+                        {project.gallery.length > 0 && (
                             <div className="mt-12">
                                 <h2 className="text-2xl font-semibold mb-6 text-primary-600">
                                     Hình ảnh dự án
@@ -175,7 +190,7 @@ export default async function ProjectDetail({
                                     </div>
                                 )}
                             </div>
-                        </div>
+                        )}
                     </div>
                 </div>
             </section>

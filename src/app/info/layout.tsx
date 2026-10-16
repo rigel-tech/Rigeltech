@@ -1,9 +1,9 @@
 import type { Metadata, Viewport } from "next";
 
 export const metadata: Metadata = {
-    title: "Thông tin liên hệ | DIGIFUND",
+    title: "Thông tin liên hệ | RIGEL TECH",
     description:
-        "Thông tin liên hệ của DIGIFUND - Công ty Cổ phần Công nghệ DIGIFUND",
+        "Thông tin liên hệ của RIGEL TECH - Công ty Cổ phần Công nghệ RIGEL TECH",
 };
 
 export const viewport: Viewport = {

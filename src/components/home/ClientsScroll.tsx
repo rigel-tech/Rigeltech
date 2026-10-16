@@ -17,15 +17,16 @@ export default function ClientsScroll({ logos, docKey }: ClientsScrollProps) {
     const items = Array.isArray(logos) ? logos : [];
 
     const renderLogo = (client: ClientLogo, index: number, key: string) => (
-        <div key={key} className="flex-none mx-8 w-[120px]">
+        <div key={key} className="flex-none mx-6">
             <InlineImage
                 path={`clients.logos[${index}].image`}
                 docKey={docKey}
                 src={client.image}
                 alt={client.alt || ""}
                 width={120}
-                height={60}
-                className="grayscale hover:grayscale-0 transition-all w-auto h-auto"
+                height={40}
+                wrapperClassName="h-[64px] w-[148px] rounded-xl bg-white px-4 py-3 shadow-sm ring-1 ring-black/5 flex items-center justify-center"
+                className="max-h-[40px] max-w-[116px] object-contain grayscale hover:grayscale-0 transition-all duration-200"
                 style={{ width: "auto", height: "auto" }}
             />
         </div>

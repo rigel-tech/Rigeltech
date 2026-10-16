@@ -22,14 +22,14 @@ export const metadata: Metadata = {
     "RIGEL TECH - Đối tác tin cậy trong hành trình chuyển đổi số của doanh nghiệp. Cung cấp giải pháp tài chính số, blockchain và AI tiên tiến.",
   keywords:
     "RIGEL TECH, fintech, blockchain, AI, digital transformation, financial technology, công nghệ tài chính, chuyển đổi số, tài chính số",
-  authors: [{ name: "RIGEL TECH", url: "https://digifund.com.vn" }],
+  authors: [{ name: "RIGEL TECH", url: "https://rigeltech.vn" }],
   robots: "index, follow",
   alternates: {
-    canonical: "https://digifund.com.vn",
+    canonical: "https://rigeltech.vn",
   },
   openGraph: {
     type: "website",
-    url: "https://digifund.com.vn",
+    url: "https://rigeltech.vn",
     title: "RIGEL TECH - Công nghệ tài chính số | Giải pháp Fintech hàng đầu",
     description:
       "RIGEL TECH - Đối tác tin cậy trong hành trình chuyển đổi số của doanh nghiệp",
@@ -47,7 +47,7 @@ export const metadata: Metadata = {
     icon: "/logo-nobackground.png",
     apple: "/apple-icon.png",
   },
-  metadataBase: new URL("https://digifund.tech"),
+  metadataBase: new URL("https://rigeltech.vn"),
 };
 
 export default async function RootLayout({
